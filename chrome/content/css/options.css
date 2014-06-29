@@ -154,6 +154,11 @@
   background: #25b18b;
 }
 
+#options #view .promo .tim:hover {
+  background: #985AD8;
+}
+ 
+
 #options #view .promo .normal {
   font-size: .8em;
   background: #ddd;
