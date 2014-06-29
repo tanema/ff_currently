@@ -1,0 +1,39 @@
+overlay	chrome://browser/content/browser.xul	chrome://currently/content/currently.xul
+
+content	currently	chrome/content/
+skin	currently	classic/1.0	chrome/skin/
+
+resource	currently	chrome/content/js/
+
+style chrome://browser/content/browser.xul chrome://currently/skin/default.css
+style chrome://global/content/customizeToolbar.xul chrome://currently/skin/default.css
+
+locale	currently en-US	chrome/locale/en-US/
+locale	currently zh	chrome/locale/zh-CN/
+locale	currently zh-CN	chrome/locale/zh-CN/
+locale	currently zh-TW	chrome/locale/zh-TW/
+locale	currently de	chrome/locale/de/
+locale	currently ru	chrome/locale/ru/
+locale	currently pt	chrome/locale/pt/
+locale	currently pt-br	chrome/locale/pt-br/
+locale	currently es	chrome/locale/es/
+locale	currently es-es	chrome/locale/es-ES/
+locale	currently es-ar	chrome/locale/es-419/
+locale	currently es-bo	chrome/locale/es-419/
+locale	currently es-co	chrome/locale/es-419/
+locale	currently es-cl	chrome/locale/es-419/
+locale	currently es-cr	chrome/locale/es-419/
+locale	currently es-do	chrome/locale/es-419/
+locale	currently es-ec	chrome/locale/es-419/
+locale	currently es-gt	chrome/locale/es-419/
+locale	currently es-hn	chrome/locale/es-419/
+locale	currently es-mx	chrome/locale/es-419/
+locale	currently es-ni	chrome/locale/es-419/
+locale	currently es-py	chrome/locale/es-419/
+locale	currently es-pa	chrome/locale/es-419/
+locale	currently es-pe	chrome/locale/es-419/
+locale	currently es-pr	chrome/locale/es-419/
+locale	currently es-sv	chrome/locale/es-419/
+locale	currently es-uy	chrome/locale/es-419/
+locale	currently es-ve	chrome/locale/es-419/
+locale	currently ja		chrome/locale/ja/

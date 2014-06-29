@@ -1,0 +1,9 @@
+<!ENTITY name "NEW Tab Plus">
+<!ENTITY description "New Tab Plus es una aplicación extendida del navegador Firefox que está basado en HTML5. Ofrece varias funciones, como marcado rápido, además de nube, y de copia de seguridad en la nube para mejorar la función original nueva pestaña de Firefox. Además, integra otros plugins para proporcionar a los usuarios experiencia de navegación más rápida. Estos plugins son meteorólogo, papel pintado, búsqueda rápida, etc.">
+<!ENTITY creator "">
+<!ENTITY developer "Zola">
+<!ENTITY options "Opciones">
+<!ENTITY options_page "Opciones">
+<!ENTITY options_desc "Inicio">
+<!ENTITY set "Al iniciar Firefox Mostrar New Tab Plus">
+<!ENTITY help "Ayudar">

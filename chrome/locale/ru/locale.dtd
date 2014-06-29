@@ -1,0 +1,9 @@
+<!ENTITY name "NEW Tab Plus">
+<!ENTITY description "New Tab Plus представляет собой расширения для применения браузера Firefox , основанный на HTML5, имеет каталог сайта, приложение APP, программа для быстрого набора, прогноз погоды, отображение IP-адреса, календарь, избранное, изменение обоев, поиск, утилита, резервное копирование в облако, навигации. Данные никогда не теряются.">
+<!ENTITY creator "">
+<!ENTITY developer "Zola">
+<!ENTITY options "опции">
+<!ENTITY options_page "опции">
+<!ENTITY options_desc "Запуск">
+<!ENTITY set "При запуске Firefox показывать New Tab Plus">
+<!ENTITY help "помощь">
