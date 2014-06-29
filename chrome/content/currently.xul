@@ -2,5 +2,5 @@
 <?xml-stylesheet href="chrome://currently/skin/default.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://currently/locale/locale.dtd">
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
-	<script type="application/x-javascript" src="chrome://currently/content/js/newtabplus.js"></script>
+	<script type="application/x-javascript" src="chrome://currently/content/js/newtabbootstrap.js"></script>
 </overlay>

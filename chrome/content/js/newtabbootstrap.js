@@ -3,8 +3,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
 //最后一页函数
-if (typeof newtabplusLastTab == 'undefined') {
-	var newtabplusLastTab = function(gBrowser) {
+if (typeof newtabbootstrapLastTab == 'undefined') {
+	var newtabbootstrapLastTab = function(gBrowser) {
 		var self = this;
 		this.gBrowser = gBrowser;
 
@@ -19,8 +19,8 @@ if (typeof newtabplusLastTab == 'undefined') {
 
 				var oneTab = self.gBrowser.tabContainer.childNodes.length == 1;
 				var emptyTab = self.gBrowser.contentDocument.location == "about:blank" || self.gBrowser.contentDocument.location == "about:newtab";
-				if (oneTab && emptyTab && typeof newtabplus != 'undefined') {
-					self.gBrowser.contentDocument.location = newtabplus.url;
+				if (oneTab && emptyTab && typeof newtabbootstrap != 'undefined') {
+					self.gBrowser.contentDocument.location = newtabbootstrap.url;
 				}
 			} catch (ex) {
 				dump("SORRY! " + ex + " \n");
@@ -42,11 +42,11 @@ if (typeof newtabplusLastTab == 'undefined') {
 		};
 	};
 
-	if (typeof newtabplusLastTabInstance == 'undefined') {
-		var newtabplusLastTabInstance = {
+	if (typeof newtabbootstrapLastTabInstance == 'undefined') {
+		var newtabbootstrapLastTabInstance = {
 			instances : [],
 			start : function(window) {
-				var instance = new newtabplusLastTab(window.gBrowser);
+				var instance = new newtabbootstrapLastTab(window.gBrowser);
 				instance.start();
 				this.instances.push(instance);
 			}
@@ -55,8 +55,8 @@ if (typeof newtabplusLastTab == 'undefined') {
 }
 
 // 主函数
-if (typeof newtabplus == 'undefined') {
-	var newtabplus = {
+if (typeof newtabbootstrap == 'undefined') {
+	var newtabbootstrap = {
 		// 参数声明
 		ver : "4.6.2",
 		id : "weidunewtab@gmail.com",
@@ -65,7 +65,7 @@ if (typeof newtabplus == 'undefined') {
 		homepage : "about:home",
 		initialPagesUpdated : false,
 		ffPreferences : Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch),
-		newtablusPreferences : Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("accessibility.newtabplus."),
+		newtablusPreferences : Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("accessibility.newtabbootstrap."),
 
 		defaultNewTabHandler : window.BrowserOpenTab,
 		defaultTMP_BrowserOpenTab : window.TMP_BrowserOpenTab,
@@ -108,10 +108,10 @@ if (typeof newtabplus == 'undefined') {
 		openTab : function() {
 			try {
 				if (!gBrowser) {
-					window.openDialog(newtabplus.url, "_blank", "chrome,all,dialog=no", "about:blank");
+					window.openDialog(newtabbootstrap.url, "_blank", "chrome,all,dialog=no", "about:blank");
 					return;
 				}
-				gBrowser.loadOneTab(newtabplus.url, { inBackground : false });
+				gBrowser.loadOneTab(newtabbootstrap.url, { inBackground : false });
 				focusAndSelectUrlBar();
 			} catch (e) {
 			}
@@ -128,7 +128,7 @@ if (typeof newtabplus == 'undefined') {
 				}
 			} else {
 				try {
-					gBrowser.loadOneTab('http://www.newtabplus.com/help.html', {inBackground : false});
+					gBrowser.loadOneTab('http://www.newtabbootstrap.com/help.html', {inBackground : false});
 					focusAndSelectUrlBar();
 				} catch (e) {
 				}
@@ -167,8 +167,8 @@ if (typeof newtabplus == 'undefined') {
 			} catch (e) {
 			}
 			// ***
-			if (typeof newtabplusLastTabInstance != 'undefined') {
-				newtabplusLastTabInstance.start(window);
+			if (typeof newtabbootstrapLastTabInstance != 'undefined') {
+				newtabbootstrapLastTabInstance.start(window);
 			}
 			this.backup();
 			// 隐藏url
@@ -189,33 +189,33 @@ if (typeof newtabplus == 'undefined') {
 }
 
 // 绑定事件
-if (typeof newtabplusListener == 'undefined') {
-	if (typeof newtabplus) {
-		var newtabplusListener = {
+if (typeof newtabbootstrapListener == 'undefined') {
+	if (typeof newtabbootstrap) {
+		var newtabbootstrapListener = {
 			onUninstalling : function(addon) {
-				if (addon.id.toLowerCase() == newtabplus.id) {
-					newtabplus.recovery();
+				if (addon.id.toLowerCase() == newtabbootstrap.id) {
+					newtabbootstrap.recovery();
 				}
 			},
 			onDisabling : function(addon) {
-				if (addon.id.toLowerCase() == newtabplus.id) {
-					newtabplus.recovery();
+				if (addon.id.toLowerCase() == newtabbootstrap.id) {
+					newtabbootstrap.recovery();
 				}
 			}
 		};
 	}
 }
 window.addEventListener('load', function() {
-	if (typeof newtabplus != "undefined") {
-		newtabplus.init();
+	if (typeof newtabbootstrap != "undefined") {
+		newtabbootstrap.init();
 	}
-	if (typeof newtabplusListener != 'undefined') {
-		AddonManager.addAddonListener(newtabplusListener);
+	if (typeof newtabbootstrapListener != 'undefined') {
+		AddonManager.addAddonListener(newtabbootstrapListener);
 	}
 }, false);
 
 window.addEventListener('unload', function() {
-	if (typeof newtabplusListener != 'undefined') {
-		AddonManager.removeAddonListener(newtabplusListener);
+	if (typeof newtabbootstrapListener != 'undefined') {
+		AddonManager.removeAddonListener(newtabbootstrapListener);
 	}
 }, false);
