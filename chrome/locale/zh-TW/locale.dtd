@@ -1,9 +1,0 @@
-<!ENTITY name "微度新標籤頁">
-<!ENTITY description "微度新標籤頁是一款基於Html5的Firefox流覽器擴展應用。它提供了網站快速撥號、網站雲添加、資料雲備份等功能來增強Firefox原生新標籤頁（New Tab）；另外微度還提供了：天氣、雲壁紙、快速搜索等外掛程式，為用戶提供最快捷的上網方式。">
-<!ENTITY creator "">
-<!ENTITY developer "zola">
-<!ENTITY options "設置">
-<!ENTITY options_page "設置">
-<!ENTITY options_desc "啟動">
-<!ENTITY set "啟用Firefox時 顯示微度新標籤頁">
-<!ENTITY help "幫助">

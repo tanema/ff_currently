@@ -1,9 +1,0 @@
-<!ENTITY name "NEW Tab Plus">
-<!ENTITY description "New Tab Plus is an extended application of the Firefox browser which is based on HTML5. It offers several features such as speed dial, cloud addition, and cloud backup to enhance the original New Tab function of Firefox. In addition, it integrates other plugins to provide users more rapid surfing experience. These plugins include weather forecaster, wallpaper, quick search etc.">
-<!ENTITY creator "">
-<!ENTITY developer "Zola">
-<!ENTITY options "Options">
-<!ENTITY options_page "Options">
-<!ENTITY options_desc "Startup">
-<!ENTITY set "When Firefox starts Show New Tab Plus">
-<!ENTITY help "Help">

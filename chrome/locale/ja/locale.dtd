@@ -1,9 +1,0 @@
-<!ENTITY name "New Tab Plus">
-<!ENTITY description "新しいタブPlusはHTML5に基づいていますFirefoxブラウザの拡張されたアプリケーションです。それはたとえば、短縮ダイヤル、クラウド加え、およびFirefoxの元の新しいタブ機能を強化するために、クラウド·バックアップなど、いくつかの機能を提供しています。また、ユーザーは、より迅速なサーフィンの経験を提供するために、他のプラグインを統合しています。これらのプラグインは、気象予報士、壁紙、クイック検索などが含まれる">
-<!ENTITY creator "">
-<!ENTITY developer "Zola">
-<!ENTITY options "オプション">
-<!ENTITY options_page "オプション">
-<!ENTITY options_desc "スタートアップ">
-<!ENTITY set "Firefoxはプラス表示新しいタブを起動すると">
-<!ENTITY help "役立つ">

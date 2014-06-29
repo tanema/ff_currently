@@ -1,9 +1,0 @@
-<!ENTITY name "微度新标签页">
-<!ENTITY description "微度新标签页是一款基于Html5的Firefox浏览器扩展应用。它提供了网站快速拨号、网站云添加、数据云备份等功能来增强Firefox原生新标签页（New Tab）；另外微度还提供了：天气、云壁纸、快速搜索等插件，为用户提供最快捷的上网方式。">
-<!ENTITY creator "">
-<!ENTITY developer "zola">
-<!ENTITY options "设置">
-<!ENTITY options_page "设置">
-<!ENTITY options_desc "启动">
-<!ENTITY set "启用Firefox时 显示微度新标签页">
-<!ENTITY help "帮助">
