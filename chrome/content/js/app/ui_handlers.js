@@ -17,6 +17,21 @@ $(function(){
       $("#weather").css('z-index', button.attr('page-disabled') ? 998 : 1);
       $(".wunder").toggleClass('bottomButtonsDark')
       $(".options").toggleClass('bottomButtonsDark')
+      // This is all in effort to make the browser change to the link instead of the iframe
+      // this is all hacked in because the links are not loaded until viewed
+      if(!button.attr('page-disabled')) {
+        setTimeout(function(){
+          $("#newTabView").contents().find("a").each(function(){
+            var href = $(this).attr('href'); 
+            if(href) {
+              $(this).attr('href', ''); 
+              $(this).on('click', function(){
+                window.location.href = href;
+              })
+            }
+          })
+        }, 100);
+      }
     })
   });
 });
