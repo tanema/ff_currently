@@ -29,6 +29,8 @@ function style() {
 
     if (!options.seconds) {
       $('#main').addClass('no-seconds');
+    } else {
+      $('#main').removeClass('no-seconds');
     }
 
   });
