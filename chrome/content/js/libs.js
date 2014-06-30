@@ -62,7 +62,9 @@ var Avgrund = (function(){
     }
 
     function addClass( element, name ) {
-        element.className = element.className.replace( /\s+$/gi, '' ) + ' ' + name;
+        //hacked this in because this add duplicates
+        $(element).addClass(name);
+        //element.className = element.className.replace( /\s+$/gi, '' ) + ' ' + name;
     }
 
     function removeClass( element, name ) {

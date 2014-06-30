@@ -15,6 +15,8 @@ $(function(){
     $("#weather").css('z-index', 998);
     button.on('click', function(){
       $("#weather").css('z-index', button.attr('page-disabled') ? 998 : 1);
+      $(".wunder").toggleClass('bottomButtonsDark')
+      $(".options").toggleClass('bottomButtonsDark')
     })
   });
 });
