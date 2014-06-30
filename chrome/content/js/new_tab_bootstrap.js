@@ -2,64 +2,8 @@ Components.utils.import("resource://gre/modules/AddonManager.jsm");
 Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
-//最后一页函数
-if (typeof newtabbootstrapLastTab == 'undefined') {
-	var newtabbootstrapLastTab = function(gBrowser) {
-		var self = this;
-		this.gBrowser = gBrowser;
-
-		var loadListener = function(event) {
-			try {
-				var doc = event.originalTarget;
-				var win = doc.defaultView;
-
-				if (typeof win != 'undefined' && win.parent != win) {
-					return;
-				}
-
-				var oneTab = self.gBrowser.tabContainer.childNodes.length == 1;
-				var emptyTab = self.gBrowser.contentDocument.location == "about:blank" || self.gBrowser.contentDocument.location == "about:newtab";
-				if (oneTab && emptyTab && typeof newtabbootstrap != 'undefined') {
-					self.gBrowser.contentDocument.location = newtabbootstrap.url;
-				}
-			} catch (ex) {
-				dump("SORRY! " + ex + " \n");
-			}
-
-		};
-
-		function refresh() {
-			try {
-				self.gBrowser.removeEventListener("load", loadListener, true);
-			} catch (ex) {
-				dump("SORRY! " + ex + " \n");
-			}
-			self.gBrowser.addEventListener("load", loadListener, true);
-		}
-
-		this.start = function() {
-			refresh();
-		};
-	};
-
-	if (typeof newtabbootstrapLastTabInstance == 'undefined') {
-		var newtabbootstrapLastTabInstance = {
-			instances : [],
-			start : function(window) {
-				var instance = new newtabbootstrapLastTab(window.gBrowser);
-				instance.start();
-				this.instances.push(instance);
-			}
-		};
-	}
-}
-
-// 主函数
 if (typeof newtabbootstrap == 'undefined') {
 	var newtabbootstrap = {
-		// 参数声明
-		ver : "4.6.2",
-		id : "weidunewtab@gmail.com",
 		url : "chrome://currently/content/index.html",
 		page : 1,
 		homepage : "about:home",
@@ -70,15 +14,12 @@ if (typeof newtabbootstrap == 'undefined') {
 		defaultNewTabHandler : window.BrowserOpenTab,
 		defaultTMP_BrowserOpenTab : window.TMP_BrowserOpenTab,
 
-		// 备份用户设置
 		backup : function() {
 			try {
 				this.newtablusPreferences.getCharPref('ver');
 			} catch (e) {
 				if (e.name == 'NS_ERROR_UNEXPECTED') {
 					this.backupDate();
-					// this.ffPreferences.setIntPref("browser.startup.page", 1);
-					// this.ffPreferences.setCharPref("browser.startup.homepage", this.url);
 				}
 			}
 		},
@@ -92,7 +33,6 @@ if (typeof newtabbootstrap == 'undefined') {
 			this.newtablusPreferences.setCharPref('homepage', this.homepage);
 			this.newtablusPreferences.setCharPref('ver', this.ver);
 		},
-		// 恢复用户数据
 		recovery : function() {
 			try {
 				this.page = this.newtablusPreferences.getIntPref('page');
@@ -104,7 +44,6 @@ if (typeof newtabbootstrap == 'undefined') {
 			}
 			this.newtablusPreferences.deleteBranch("");
 		},
-		// 打开tab
 		openTab : function() {
 			try {
 				if (!gBrowser) {
@@ -119,76 +58,26 @@ if (typeof newtabbootstrap == 'undefined') {
 		openDefaultTab : function() {
 			window.BrowserOpenTab = this.defaultNewTabHandler;
 		},
-		openHelp : function() {
-			if (this.getLocale() == 'zh-cn' || this.getLocale() == 'zh') {
-				try {
-					gBrowser.loadOneTab('http://www.weidunewtab.com/help.html', { inBackground : false });
-					focusAndSelectUrlBar();
-				} catch (e) {
-				}
-			} else {
-				try {
-					gBrowser.loadOneTab('http://www.newtabbootstrap.com/help.html', {inBackground : false});
-					focusAndSelectUrlBar();
-				} catch (e) {
-				}
-			}
-		},
-		getLocale : function() {
-			var nav = window.navigator;
-			var _language = "en";
-			if (typeof nav.language == "undefined" && typeof nav.browserLanguage == "undefined") {
-				var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("general.useragent.");
-				_language = prefs.getCharPref('locale').toLowerCase();
-			} else {
-				// With the HTML language page judgment standard
-				var _languages = (typeof nav.language == "undefined" ? nav.browserLanguage : nav.language).split("_");
-				_language = _languages[0].toLowerCase();
-				if (_languages.length > 1) {
-					_language = _languages[0].toLowerCase() + "-" + _languages[1].toLowerCase();
-				}
-			}
-			return _language;
-		},
-		// 打开设置
-		openOptions : function() {
-			var height = window.screen.availHeight / 2 - 60;
-			var width = window.screen.availWidth / 2 - 210;
-			window.openDialog('chrome://currently/content/options.xul', '', 'resizable=no,screenX=' + width + ',screenY=' + height + '\'');
-			focusAndSelectUrlBar();
-		},
-		// 初始化
 		init : function() {
-			// 恢复bug
 			try {
 				if (this.ffPreferences.getCharPref("browser.newtab.url") == this.url) {
 					this.ffPreferences.setCharPref("browser.newtab.url", "about:newtab");
 				}
 			} catch (e) {
 			}
-			// ***
-			if (typeof newtabbootstrapLastTabInstance != 'undefined') {
-				newtabbootstrapLastTabInstance.start(window);
-			}
 			this.backup();
-			// 隐藏url
 			if (!this.initialPagesUpdated) {
 				if ('gInitialPages' in window && window.gInitialPages instanceof Array) {
 					window.gInitialPages.push(this.url);
 				}
 				this.initialPagesUpdated = true;
 			}
-			// this.ffPreferences.setCharPref("browser.newtab.url", this.url);
-			//重写BrowserOpenTab
-			//先restore == > defaultNewTabHandler，
-			//再replace == > defaultTMP_BrowserOpenTab
 			window.BrowserOpenTab = this.openDefaultTab;
 			window.BrowserOpenTab = this.openTab;
 		}
 	};
 }
 
-// 绑定事件
 if (typeof newtabbootstrapListener == 'undefined') {
 	if (typeof newtabbootstrap) {
 		var newtabbootstrapListener = {
