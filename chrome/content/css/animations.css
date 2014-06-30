@@ -383,13 +383,13 @@ li.animated.fadeInLeft {
 
 .spin {
   -webkit-animation: spin 900ms linear infinite;
-  -webkit-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 99%;
   -moz-animation: spin 900ms linear infinite;
-  -moz-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 99%;
   -ms-animation: spin 900ms linear infinite;
-  -ms-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 99%;
   -o-animation: spin 900ms linear infinite;
-  -o-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 99%;
   animation: spin 900ms linear infinite;
-  transform-origin: 50% 100%;
+  transform-origin: 50% 99%;
 }

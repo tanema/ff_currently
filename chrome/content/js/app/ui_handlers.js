@@ -137,7 +137,7 @@ function save(options) {
 
     setTimeout(function(){
       $('#options button').removeClass('saved').html('SAVE');
-    },500);
+    },700);
   });
 }
 

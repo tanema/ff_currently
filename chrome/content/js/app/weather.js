@@ -231,6 +231,7 @@ var Weather = {
 
   load: function() {
     Loader.show();
+    Weather.$el.city.hide();
     return Storage.getCachedWeather()
       .fail(function() {
         // No Cache
