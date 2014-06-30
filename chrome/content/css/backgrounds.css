@@ -40,11 +40,11 @@
 }
 
 .light-text .home,.light-text .main-return,.light-text .options,.light-text .title {
-  color: rgba(0,0,0,0.3);
+  color: rgba(255,255,255,0.8);
 }
 
 .light-text .wunder path {
-  fill: rgba(0,0,0,0.3);
+  fill: rgba(255,255,255,0.8);
 }
 
 .light-text .home:hover,.light-text .main-return:hover,.light-text .options:hover {
