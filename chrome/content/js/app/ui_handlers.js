@@ -1,6 +1,9 @@
 $(function(){
   $('#newTabView').load(function(){
     var button = $("#newTabView").contents().find("#newtab-toggle")
+    if(!button.attr('page-disabled')) {
+      button.click()
+    }
     button.css('top', 'unset');
     button.css('right','10px');
     button.css('bottom','18px');
@@ -8,6 +11,11 @@ $(function(){
     button.css('background-position','-468px 0px');
     button.css('width','32px');
     button.css('height','32px');
+
+    $("#weather").css('z-index', 998);
+    button.on('click', function(){
+      $("#weather").css('z-index', button.attr('page-disabled') ? 998 : 1);
+    })
   });
 });
 
